@@ -16,6 +16,7 @@ const AlertSuccess = ({ successMsg, openSuccessMsg, setOpenSuccessMsg }) => {
 			<Alert
 				onClose={handleSucessClose}
 				severity='success'
+				classes={{ root: "bg-1" }}
 				variant='filled'
 				sx={{ width: "100%" }}>
 				{successMsg}

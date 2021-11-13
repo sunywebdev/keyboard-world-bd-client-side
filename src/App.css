@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.App {
+  text-align: center;
+  font-family: 'Rubik', sans-serif !important;
+}
+* {
+	font-family: "Rubik", sans-serif !important;
+}
 .App {
 	text-align: center;
-		background-color: #F5F7FF !important;
+	background-color: #f5f7ff !important;
 }
 
 .bg-1 {

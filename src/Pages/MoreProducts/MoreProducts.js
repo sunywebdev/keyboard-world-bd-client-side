@@ -18,7 +18,7 @@ const MoreProducts = () => {
 		<>
 			<Header></Header>
 			{products?.length > 0 ? (
-				<Container sx={{ py: 8 }}>
+				<Container sx={{ py: 8, mx: "auto" }}>
 					<Box>
 						<Typography
 							classes={{ root: "color-1" }}
@@ -32,7 +32,13 @@ const MoreProducts = () => {
 					</Box>
 					<Grid container spacing={2} sx={{ mx: "auto" }}>
 						{products?.map((product) => (
-							<Grid item xs={12} sm={6} md={3} key={product?._id}>
+							<Grid
+								item
+								xs={12}
+								sm={6}
+								md={3}
+								key={product?._id}
+								sx={{ mx: "auto" }}>
 								<ProductCard product={product}></ProductCard>
 							</Grid>
 						))}

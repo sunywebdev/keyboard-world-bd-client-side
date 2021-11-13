@@ -94,7 +94,11 @@ const SingleProduct = ({ prevQuantity }) => {
 						spacing={2}
 						sx={{ display: "flex", alignItems: "center" }}>
 						<Grid item xs={12} md={5}>
-							<CardMedia component='img' image={product?.productPhoto} />
+							<CardMedia
+								component='img'
+								image={product?.productPhoto}
+								sx={{ mt: { xs: -4 }, mb: { xs: -11 } }}
+							/>
 						</Grid>
 						<Grid item xs={12} md={4} sx={{ textAlign: "left" }}>
 							<Typography
@@ -166,15 +170,17 @@ const SingleProduct = ({ prevQuantity }) => {
 											display: "flex",
 											alignItems: "center",
 											mr: 1,
-											border: "2px solid black",
+											border: "2px solid #6047ec",
+											borderRadius: "5px 0 0 5px",
 										}}>
 										<input
 											type='number'
 											value={quantity}
+											className='color-1'
 											style={{
-												maxWidth: 45,
-												height: 27,
-												borderRadius: 0,
+												maxWidth: 40,
+												height: 29,
+												borderRadius: "5px 0 0 5px",
 												border: 0,
 												fontSize: "21px",
 												fontWeight: "bold",
@@ -188,7 +194,12 @@ const SingleProduct = ({ prevQuantity }) => {
 												onClick={() =>
 													quantity > 0 && setQuantity(quantity - 1)
 												}
-												sx={{ p: 0, height: 17, borderRadius: 0 }}>
+												sx={{
+													p: 0,
+													height: 16,
+													borderRadius: 0,
+													borderBottom: 0.5,
+												}}>
 												-
 											</Button>
 											<Button
@@ -197,9 +208,9 @@ const SingleProduct = ({ prevQuantity }) => {
 												onClick={() => setQuantity(quantity + 1)}
 												sx={{
 													p: 0,
-													height: 17,
+													height: 16,
 													borderRadius: 0,
-													borderTop: 1,
+													borderTop: 0.5,
 												}}>
 												+
 											</Button>
@@ -343,7 +354,7 @@ const SingleProduct = ({ prevQuantity }) => {
 				<AlertSuccess
 					successMsg={successMsg}
 					openSuccessMsg={openSuccessMsg}
-					setOpenSuccess={setOpenSuccessMsg}></AlertSuccess>
+					setOpenSuccessMsg={setOpenSuccessMsg}></AlertSuccess>
 			</Container>
 			<Footer></Footer>
 		</>

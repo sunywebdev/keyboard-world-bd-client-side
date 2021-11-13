@@ -11,6 +11,7 @@ import DashBoardHome from "./Pages/DashBoard/DashBoardHome/DashBoardHome";
 import MoreProducts from "./Pages/MoreProducts/MoreProducts";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import NotFound from "./Pages/NotFound/NotFound";
+import AllBlogs from "./Pages/AllBlogs/AllBlogs";
 
 function App() {
 	return (
@@ -29,6 +30,9 @@ function App() {
 						</PrivateRoute>
 						<PrivateRoute path='/allproducts'>
 							<MoreProducts></MoreProducts>
+						</PrivateRoute>
+						<PrivateRoute path='/allblog'>
+							<AllBlogs></AllBlogs>
 						</PrivateRoute>
 						<Route path='/login'>
 							<Login></Login>

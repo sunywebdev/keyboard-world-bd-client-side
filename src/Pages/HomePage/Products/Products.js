@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Container, LinearProgress, Typography } from "@mui/material";
+import { Button, Container, LinearProgress, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import ProductCard from "../../../SharedComponents/ProductCard/ProductCard";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
-		fetch(`https://murmuring-fjord-25327.herokuapp.com/products`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/products8`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
 	}, []);
@@ -29,11 +30,25 @@ const Products = () => {
 					</Box>
 					<Grid container spacing={2} sx={{ mx: "auto" }}>
 						{products?.map((product) => (
-							<Grid item xs={12} sm={6} md={3} key={product?._id}>
+							<Grid
+								item
+								xs={12}
+								sm={6}
+								md={3}
+								key={product?._id}
+								sx={{ mx: "auto" }}>
 								<ProductCard product={product}></ProductCard>
 							</Grid>
 						))}
 					</Grid>
+					<Link to='/allproducts' style={{ textDecoration: "none" }}>
+						<Button
+							classes={{ root: "bg-1" }}
+							variant='contained'
+							sx={{ mt: 3 }}>
+							Explore More Products
+						</Button>
+					</Link>
 				</>
 			) : (
 				<LinearProgress />

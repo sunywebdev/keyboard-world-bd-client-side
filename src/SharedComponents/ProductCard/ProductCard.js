@@ -154,7 +154,7 @@ const ProductCard = ({ product }) => {
 			<AlertSuccess
 				successMsg={successMsg}
 				openSuccessMsg={openSuccessMsg}
-				setOpenSuccess={setOpenSuccessMsg}></AlertSuccess>
+				setOpenSuccessMsg={setOpenSuccessMsg}></AlertSuccess>
 		</>
 	);
 };

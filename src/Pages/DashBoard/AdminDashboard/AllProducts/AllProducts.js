@@ -16,6 +16,7 @@ import React, { useEffect, useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import AlertDialog from "../../../../SharedComponents/AlertDialog/AlertDialog";
 import AlertSuccess from "../../../../SharedComponents/AlertSuccess/AlertSuccess";
 
@@ -107,24 +108,26 @@ const AllProducts = () => {
 													component='div'
 													classes={{ root: "color-1" }}
 													sx={{ fontWeight: "bold" }}>
-													{product?.productPrice}
+													{product?.productPrice} ৳
 												</Typography>
 											</TableCell>
 											<TableCell align='left'>
-												<Link to={`/dashboard/editproduct/${product?._id}`}>
+												<ButtonGroup>
+													<Link to={`/dashboard/editproduct/${product?._id}`}>
+														<Button
+															classes={{ root: "bg-1" }}
+															variant='contained'>
+															<EditIcon />
+														</Button>
+													</Link>
 													<Button
+														onClick={() => setAlert(true)}
 														classes={{ root: "bg-1" }}
+														sx={{ mx: 1 }}
 														variant='contained'>
-														<EditIcon />
+														<DeleteIcon />
 													</Button>
-												</Link>
-												<Button
-													onClick={() => setAlert(true)}
-													classes={{ root: "bg-1" }}
-													sx={{ mx: 1 }}
-													variant='contained'>
-													<DeleteIcon />
-												</Button>
+												</ButtonGroup>
 											</TableCell>
 										</TableRow>
 										<AlertDialog

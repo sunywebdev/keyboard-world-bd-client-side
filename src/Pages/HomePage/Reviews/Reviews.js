@@ -69,7 +69,7 @@ const Reviews = () => {
 							Customer Review About Our Service
 						</Typography>
 					</Box>
-					<Container>
+					<Container sx={{ overflow: "hidden", mx: "auto" }}>
 						<Slider {...settings}>
 							{reviews?.map((review) => (
 								<>

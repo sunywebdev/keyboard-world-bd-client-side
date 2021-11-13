@@ -7,8 +7,8 @@ const Footer = () => {
 			<Grid
 				container
 				spacing={2}
-				sx={{ textAlign: "left", py: 5, mt: 9, color: "white" }}>
-				<Grid item md={4}>
+				sx={{ textAlign: "left", pt: 5, pb: 2, mt: 9, color: "white" }}>
+				<Grid item md={4} sx={{ mx: "auto" }}>
 					<Box>
 						<Box sx={{ textAlign: "left" }}>
 							<Typography sx={{ fontWeight: "bold", mt: 2 }} variant='h6'>
@@ -44,14 +44,17 @@ const Footer = () => {
 										backgroundColor: "white",
 										color: "#6047ec",
 										fontWeight: "bold",
-									}}>
+									}}
+									style={{ backgroundColor: "white" }}
+									disableElevation
+									disableRipple>
 									Subscribe
 								</Button>
 							</Box>
 						</form>
 					</Box>
 				</Grid>
-				<Grid item md={3}>
+				<Grid item md={3} sx={{ mx: "auto" }}>
 					<Typography
 						sx={{ textAlign: "center", fontWeight: "bold", mt: 2, mb: 1 }}
 						variant='h5'>
@@ -63,7 +66,7 @@ const Footer = () => {
 						alt=''
 					/>
 				</Grid>
-				<Grid item md={5}>
+				<Grid item md={5} sx={{ mx: "auto" }}>
 					<Typography
 						sx={{ textAlign: "center", fontWeight: "bold", mt: 2, mb: 1 }}
 						variant='h5'>

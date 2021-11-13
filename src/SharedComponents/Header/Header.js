@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import useAuth from "../../context/useAuth";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { Menu, MenuItem, Typography } from "@mui/material";
+import { ButtonGroup, Menu, MenuItem, Typography } from "@mui/material";
 
 const Header = () => {
 	const { user, logOut } = useAuth();
@@ -18,6 +18,7 @@ const Header = () => {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position='fixed' classes={{ root: "bg-1" }}>
@@ -34,15 +35,39 @@ const Header = () => {
 							sx={{ my: 1 }}
 							exact
 							to='/'>
-							Keyboard World BD
+							KEYBOARD WORLD BD
 						</Link>
 					</Typography>
 					<Box>
-						<Link
-							style={{ textDecoration: "none", color: "white" }}
-							to='/allproducts'>
-							Explore
-						</Link>
+						<ButtonGroup variant='text'>
+							<Link
+								style={{ textDecoration: "none", color: "white" }}
+								to='/dashboard'>
+								<Button
+									sx={{ display: { xs: "none", md: "block" } }}
+									color='inherit'>
+									Dashboard
+								</Button>
+							</Link>
+							<Link
+								style={{ textDecoration: "none", color: "white" }}
+								to='/allproducts'>
+								<Button
+									sx={{ display: { xs: "none", md: "block" } }}
+									color='inherit'>
+									Explore More Products
+								</Button>
+							</Link>
+							<Link
+								style={{ textDecoration: "none", color: "white" }}
+								to='/allblog'>
+								<Button
+									sx={{ display: { xs: "none", md: "block" } }}
+									color='inherit'>
+									All Blogs
+								</Button>
+							</Link>
+						</ButtonGroup>
 						<Menu
 							id='basic-menu'
 							anchorEl={anchorEl}
@@ -57,6 +82,20 @@ const Header = () => {
 								exact
 								to='/dashboard'>
 								<MenuItem onClick={handleClose}>Dashboard</MenuItem>
+							</Link>
+							<Link
+								style={{ textDecoration: "none", color: "black" }}
+								sx={{ my: 1 }}
+								exact
+								to='/allblog'>
+								<MenuItem onClick={handleClose}>All Blogs</MenuItem>
+							</Link>
+							<Link
+								style={{ textDecoration: "none", color: "black" }}
+								sx={{ my: 1 }}
+								exact
+								to='/allproducts'>
+								<MenuItem onClick={handleClose}>Explore More Products</MenuItem>
 							</Link>
 							<MenuItem onClick={(handleClose, logOut)}>Logout</MenuItem>
 						</Menu>

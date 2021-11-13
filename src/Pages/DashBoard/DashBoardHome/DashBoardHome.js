@@ -54,7 +54,10 @@ function DashboardHome(props) {
 	const Developer = singleUser?.userRole === "Developer";
 	const drawer = (
 		<div>
-			<Button sx={{ my: 1.8 }} variant='contained' classes={{ root: "bg-1" }}>
+			<Button
+				sx={{ my: 1.8, mx: "auto" }}
+				variant='contained'
+				classes={{ root: "bg-1" }}>
 				<Link style={{ textDecoration: "none", color: "white" }} exact to='/'>
 					Home Page
 				</Link>
@@ -78,7 +81,6 @@ function DashboardHome(props) {
 
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/pay`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -89,7 +91,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/updateProfile`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -100,7 +101,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/addreviews`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -117,7 +117,6 @@ function DashboardHome(props) {
 					<Box>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/allUsers`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -129,7 +128,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/allUsersReviews`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -141,7 +139,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/allorders`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -153,7 +150,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/pageRoles`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -165,7 +161,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/allproducts`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -177,7 +172,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/addproduct`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -189,7 +183,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/allblogs`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -201,7 +194,6 @@ function DashboardHome(props) {
 						</Link>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
-							exact
 							to={`${url}/addblog`}>
 							<ListItem button>
 								<ListItemIcon>
@@ -240,7 +232,7 @@ function DashboardHome(props) {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant='h6' noWrap component='div'>
-						User Dashboard
+						{singleUser?.userRole} Dashboard
 					</Typography>
 					{user?.email && (
 						<Button color='inherit' onClick={logOut}>

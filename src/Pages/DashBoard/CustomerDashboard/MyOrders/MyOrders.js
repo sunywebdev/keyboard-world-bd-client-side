@@ -109,7 +109,7 @@ const MyOrders = () => {
 												<Typography
 													classes={{ root: "color-1" }}
 													sx={{ fontWeight: "bold" }}>
-													{order?.total}
+													{order?.total} ৳
 												</Typography>
 											</TableCell>
 											<TableCell align='left'>

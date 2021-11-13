@@ -15,6 +15,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import AlertDialog from "../../../../SharedComponents/AlertDialog/AlertDialog";
 import AlertSuccess from "../../../../SharedComponents/AlertSuccess/AlertSuccess";
 
@@ -27,14 +28,14 @@ const AllOrders = () => {
 		fetch(`https://murmuring-fjord-25327.herokuapp.com/orders`)
 			.then((res) => res.json())
 			.then((data) => setOrders(data));
-	}, []);
+	}, [openSuccessMsg]);
 
 	const handleAlertAgreeClose = (id) => {
 		axios
 			.delete(`https://murmuring-fjord-25327.herokuapp.com/orders/${id}`)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
-				setSuccessMsg("Your Order Deleted Successfully");
+				setSuccessMsg("This Order Deleted Successfully");
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -126,7 +127,7 @@ const AllOrders = () => {
 												<Typography
 													classes={{ root: "color-1" }}
 													sx={{ fontWeight: "bold" }}>
-													{order?.total}
+													{order?.total} ৳
 												</Typography>
 											</TableCell>
 											<TableCell align='left'>
@@ -137,21 +138,23 @@ const AllOrders = () => {
 												</Typography>
 											</TableCell>
 											<TableCell align='left'>
-												{order?.status === "Pending" && (
+												<ButtonGroup>
+													{order?.status === "Pending" && (
+														<Button
+															onClick={() => statusChange(order?._id)}
+															classes={{ root: "bg-1" }}
+															variant='contained'>
+															<CheckIcon />
+														</Button>
+													)}
 													<Button
-														onClick={() => statusChange(order?._id)}
+														onClick={() => setAlert(true)}
 														classes={{ root: "bg-1" }}
+														sx={{ mx: 1 }}
 														variant='contained'>
-														<CheckIcon />
+														<CloseIcon />
 													</Button>
-												)}
-												<Button
-													onClick={() => setAlert(true)}
-													classes={{ root: "bg-1" }}
-													sx={{ mx: 1 }}
-													variant='contained'>
-													<CloseIcon />
-												</Button>
+												</ButtonGroup>
 											</TableCell>
 										</TableRow>
 										<AlertDialog
@@ -197,7 +200,7 @@ const AllOrders = () => {
 				<AlertSuccess
 					successMsg={successMsg}
 					openSuccessMsg={openSuccessMsg}
-					setOpenSuccess={setOpenSuccessMsg}></AlertSuccess>
+					setOpenSuccessMsg={setOpenSuccessMsg}></AlertSuccess>
 			</Grid>
 		</div>
 	);
