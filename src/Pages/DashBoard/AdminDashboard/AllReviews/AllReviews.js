@@ -28,7 +28,7 @@ const AllReviews = () => {
 		fetch(`https://murmuring-fjord-25327.herokuapp.com/reviews`)
 			.then((res) => res.json())
 			.then((data) => setReviews(data));
-	}, [reviews]);
+	}, [openSuccessMsg]);
 
 	const handleAlertAgreeClose = (id) => {
 		axios

@@ -37,7 +37,7 @@ const SingleBlog = ({ blog }) => {
 				avatar={
 					<img
 						src={blog?.bloggerPhoto}
-						alt=''
+						alt={blog?.blogTitle}
 						width='35'
 						height='35'
 						style={{ borderRadius: "50%" }}

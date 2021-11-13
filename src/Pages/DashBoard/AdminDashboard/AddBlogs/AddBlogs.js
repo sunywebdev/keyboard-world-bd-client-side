@@ -13,13 +13,14 @@ const AddBlogs = () => {
 	const { user } = useAuth();
 	const [openSuccessMsg, setOpenSuccessMsg] = React.useState(false);
 	const [successMsg, setSuccessMsg] = React.useState("");
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, reset } = useForm();
 	const onSubmit = (data) => {
 		axios
 			.post("https://murmuring-fjord-25327.herokuapp.com/blogs", data)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Successfully added new Blog !");
+				reset();
 			})
 			.catch(function (error) {
 				console.log(error);

@@ -94,7 +94,6 @@ const PageRols = () => {
 								{...register("userRole", { required: true })}>
 								<MenuItem value='Admin'>Admin</MenuItem>
 								<MenuItem value='User'>User</MenuItem>
-								<MenuItem value='Developer'>Developer</MenuItem>
 							</Select>
 						</FormControl>
 						<Button

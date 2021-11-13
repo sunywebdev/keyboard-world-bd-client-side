@@ -43,15 +43,6 @@ function DashboardHome(props) {
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
-	const [singleUser, setUser] = React.useState([]);
-	React.useEffect(() => {
-		fetch(
-			`https://murmuring-fjord-25327.herokuapp.com/singleUsers?email=${user?.email}`,
-		)
-			.then((res) => res.json())
-			.then((data) => setUser(data));
-	}, [user?.email]);
-	const Developer = singleUser?.userRole === "Developer";
 	const drawer = (
 		<div>
 			<Button
@@ -65,7 +56,7 @@ function DashboardHome(props) {
 
 			<Divider />
 			<List>
-				{(!admin || Developer) && (
+				{!admin && (
 					<>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
@@ -113,7 +104,7 @@ function DashboardHome(props) {
 					</>
 				)}
 
-				{(admin || Developer) && (
+				{admin && (
 					<Box>
 						<Link
 							style={{ textDecoration: "none", color: "black" }}
@@ -232,7 +223,7 @@ function DashboardHome(props) {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant='h6' noWrap component='div'>
-						{singleUser?.userRole} Dashboard
+						Dashboard
 					</Typography>
 					{user?.email && (
 						<Button color='inherit' onClick={logOut}>

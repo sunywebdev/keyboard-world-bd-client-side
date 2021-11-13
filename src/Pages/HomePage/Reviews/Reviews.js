@@ -13,7 +13,7 @@ const Reviews = () => {
 		fetch(`https://murmuring-fjord-25327.herokuapp.com/reviews`)
 			.then((res) => res.json())
 			.then((data) => setReviews(data));
-	}, []);
+	}, [reviews]);
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -23,7 +23,6 @@ const Reviews = () => {
 		speed: 700,
 		autoplaySpeed: 4000,
 		cssEase: "linear",
-		adaptiveHeight: true,
 		swipeToSlide: true,
 		responsive: [
 			{
@@ -33,7 +32,6 @@ const Reviews = () => {
 					slidesToScroll: 1,
 					infinite: true,
 					dots: true,
-					adaptiveHeight: true,
 				},
 			},
 			{
@@ -49,7 +47,6 @@ const Reviews = () => {
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
-					adaptiveHeight: true,
 				},
 			},
 		],
@@ -121,8 +118,8 @@ const Reviews = () => {
 										<Typography
 											variant='body2'
 											color='text.secondary'
-											sx={{ mt: 1 }}>
-											{review?.userReview}
+											sx={{ mt: 1,px:1 }}>
+											{(review?.userReview).slice(0,350)}
 										</Typography>
 									</Card>
 								</>

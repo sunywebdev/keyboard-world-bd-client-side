@@ -8,13 +8,14 @@ import AlertSuccess from "../../../../SharedComponents/AlertSuccess/AlertSuccess
 const AddProducts = () => {
 	const [openSuccessMsg, setOpenSuccessMsg] = React.useState(false);
 	const [successMsg, setSuccessMsg] = React.useState("");
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, reset } = useForm();
 	const onSubmit = (data) => {
 		axios
 			.post("https://murmuring-fjord-25327.herokuapp.com/products", data)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Successfully added new product !");
+				reset();
 			})
 			.catch(function (error) {
 				console.log(error);

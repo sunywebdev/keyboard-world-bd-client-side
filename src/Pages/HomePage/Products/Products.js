@@ -11,7 +11,7 @@ const Products = () => {
 		fetch(`https://murmuring-fjord-25327.herokuapp.com/products8`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
-	}, []);
+	}, [products]);
 
 	return (
 		<Container sx={{ mt: 11, mx: "auto" }}>

@@ -39,35 +39,37 @@ const Header = () => {
 						</Link>
 					</Typography>
 					<Box>
-						<ButtonGroup variant='text'>
-							<Link
-								style={{ textDecoration: "none", color: "white" }}
-								to='/dashboard'>
-								<Button
-									sx={{ display: { xs: "none", md: "block" } }}
-									color='inherit'>
-									Dashboard
-								</Button>
-							</Link>
-							<Link
-								style={{ textDecoration: "none", color: "white" }}
-								to='/allproducts'>
-								<Button
-									sx={{ display: { xs: "none", md: "block" } }}
-									color='inherit'>
-									Explore More Products
-								</Button>
-							</Link>
-							<Link
-								style={{ textDecoration: "none", color: "white" }}
-								to='/allblog'>
-								<Button
-									sx={{ display: { xs: "none", md: "block" } }}
-									color='inherit'>
-									All Blogs
-								</Button>
-							</Link>
-						</ButtonGroup>
+						{user?.email && (
+							<ButtonGroup variant='text'>
+								<Link
+									style={{ textDecoration: "none", color: "white" }}
+									to='/dashboard'>
+									<Button
+										sx={{ display: { xs: "none", md: "block" } }}
+										color='inherit'>
+										Dashboard
+									</Button>
+								</Link>
+								<Link
+									style={{ textDecoration: "none", color: "white" }}
+									to='/allproducts'>
+									<Button
+										sx={{ display: { xs: "none", md: "block" } }}
+										color='inherit'>
+										Explore More Products
+									</Button>
+								</Link>
+								<Link
+									style={{ textDecoration: "none", color: "white" }}
+									to='/allblog'>
+									<Button
+										sx={{ display: { xs: "none", md: "block" } }}
+										color='inherit'>
+										All Blogs
+									</Button>
+								</Link>
+							</ButtonGroup>
+						)}
 						<Menu
 							id='basic-menu'
 							anchorEl={anchorEl}
