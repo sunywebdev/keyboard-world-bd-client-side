@@ -114,7 +114,7 @@ const PasswordReset = () => {
 			</Grid>
 
 			{!error && (
-				<Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+				<Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
 					<Alert
 						onClose={handleClose}
 						severity='success'
@@ -122,7 +122,7 @@ const PasswordReset = () => {
 						variant='filled'
 						sx={{ width: "100%" }}>
 						Reset Request Successfull, Going Back To Desired Page in &nbsp;
-						<Timer initialTime={5000} direction='backward'>
+						<Timer initialTime={4000} direction='backward'>
 							{() => (
 								<React.Fragment>
 									<Timer.Seconds />

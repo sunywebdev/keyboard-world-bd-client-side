@@ -131,7 +131,7 @@ const Login = () => {
 				</Grid>
 			</Grid>
 			{user?.email && !error && (
-				<Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+				<Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
 					<Alert
 						onClose={handleClose}
 						severity='success'
@@ -139,7 +139,7 @@ const Login = () => {
 						variant='filled'
 						sx={{ width: "100%" }}>
 						Login Successfull, Going Back To Desired Page in &nbsp;
-						<Timer initialTime={5000} direction='backward'>
+						<Timer initialTime={4000} direction='backward'>
 							{() => (
 								<React.Fragment>
 									<Timer.Seconds />

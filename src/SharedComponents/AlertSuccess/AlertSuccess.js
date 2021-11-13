@@ -11,7 +11,7 @@ const AlertSuccess = ({ successMsg, openSuccessMsg, setOpenSuccessMsg }) => {
 	return (
 		<Snackbar
 			open={openSuccessMsg}
-			autoHideDuration={5000}
+			autoHideDuration={4000}
 			onClose={handleSucessClose}>
 			<Alert
 				onClose={handleSucessClose}

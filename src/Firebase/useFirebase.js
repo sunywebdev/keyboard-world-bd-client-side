@@ -66,7 +66,7 @@ const useFirebase = () => {
 				setTimeout(function () {
 					const destination = location?.state?.from || "/login";
 					history.replace(destination);
-				}, 5000);
+				}, 4000);
 			})
 			.catch((error) => {
 				const errorMessage = error.message;
@@ -98,7 +98,7 @@ const useFirebase = () => {
 				setTimeout(function () {
 					const destination = location?.state?.from || "/";
 					history.replace(destination);
-				}, 5000); */
+				}, 4000); */
 				saveUserToDb(email, displayName, photoURL, setOpen, history, location);
 			})
 			.catch((error) => {
@@ -123,7 +123,7 @@ const useFirebase = () => {
 				setTimeout(function () {
 					const destination = location?.state?.from || "/";
 					history.replace(destination);
-				}, 5000);
+				}, 4000);
 			})
 			.catch((error) => {
 				const errorMessage = error.message;
@@ -149,7 +149,7 @@ const useFirebase = () => {
 				setTimeout(function () {
 					const destination = location?.state?.from || "/";
 					history.replace(destination);
-				}, 5000);
+				}, 4000);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -172,7 +172,7 @@ const useFirebase = () => {
 				setTimeout(function () {
 					const destination = location?.state?.from || "/";
 					history.replace(destination);
-				}, 5000);
+				}, 4000);
 			})
 			.catch(function (error) {
 				console.log(error);

@@ -140,27 +140,13 @@ const MyOrders = () => {
 						) : (
 							<TableHead sx={{ th: { fontWeight: "bold" } }}>
 								<TableRow>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
 								</TableRow>
 							</TableHead>
 						)}
