@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -20,6 +20,7 @@ const ProductCard = ({ product }) => {
 	const userName = user?.email?.split("@")[0];
 	const productPhoto = product?.productPhoto;
 	const productId = product?.productId;
+	const [disable, setDisable] = React.useState(true);
 	const submitOrder = () => {
 		axios
 			.post("https://murmuring-fjord-25327.herokuapp.com/orders", {
@@ -38,6 +39,11 @@ const ProductCard = ({ product }) => {
 				console.log(error);
 			});
 	};
+	useEffect(() => {
+		if (user?.email) {
+			setDisable(false);
+		}
+	}, [user?.email]);
 
 	return (
 		<>
@@ -132,7 +138,9 @@ const ProductCard = ({ product }) => {
 						</Box>
 
 						<Button
+							disabled={disable}
 							onClick={submitOrder}
+							sx={{ color: "white" }}
 							classes={{ root: "bg-1" }}
 							variant='contained'>
 							<AddShoppingCartIcon />
