@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router";
+import "./App.css";
+import AuthProvider from "./context/AuthProvider";
+import HomeMain from "./Pages/HomePage/HomeMain/HomeMain";
+import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/SignUp/SignUp";
+import PasswordReset from "./Pages/PasswordReset/PasswordReset";
+import SingleProduct from "./Pages/SingleProduct/SingleProduct";
+import DashBoardHome from "./Pages/DashBoard/DashBoardHome/DashBoardHome";
+import MoreProducts from "./Pages/MoreProducts/MoreProducts";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<AuthProvider>
+				<BrowserRouter>
+					<Switch>
+						<Route exact path='/'>
+							<HomeMain></HomeMain>
+						</Route>
+						<PrivateRoute path='/dashboard'>
+							<DashBoardHome></DashBoardHome>
+						</PrivateRoute>
+						<PrivateRoute path='/products/:id'>
+							<SingleProduct></SingleProduct>
+						</PrivateRoute>
+						<PrivateRoute path='/allproducts'>
+							<MoreProducts></MoreProducts>
+						</PrivateRoute>
+						<Route path='/login'>
+							<Login></Login>
+						</Route>
+						<Route path='/signup'>
+							<SignUp></SignUp>
+						</Route>
+						<Route path='/resetpassword'>
+							<PasswordReset></PasswordReset>
+						</Route>
+					</Switch>
+				</BrowserRouter>
+			</AuthProvider>
+		</div>
+	);
 }
 
 export default App;
