@@ -67,7 +67,7 @@ const AddProducts = () => {
 								{...register("productReviewCount", { required: true })}
 							/>
 							<TextField
-								type='number'
+								type='float'
 								label='Product Review Star'
 								{...register("productReviewStar", { required: true })}
 							/>
