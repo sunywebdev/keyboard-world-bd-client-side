@@ -7,7 +7,7 @@ import { Box } from "@mui/system";
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
-		fetch(`http://localhost:5000/products`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/products`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
 	}, []);

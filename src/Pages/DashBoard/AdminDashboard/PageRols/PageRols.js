@@ -23,7 +23,7 @@ const PageRols = () => {
 	const [successMsg, setSuccessMsg] = useState("");
 	const [users, setUsers] = useState([]);
 	useEffect(() => {
-		fetch(`http://localhost:5000/users`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/users`)
 			.then((res) => res.json())
 			.then((data) => setUsers(data));
 	}, []);
@@ -32,7 +32,7 @@ const PageRols = () => {
 	const onSubmit = (data) => {
 		console.log(data);
 		axios
-			.put(`http://localhost:5000/users/pageRole`, data, {
+			.put(`https://murmuring-fjord-25327.herokuapp.com/users/pageRole`, data, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

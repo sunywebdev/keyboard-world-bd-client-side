@@ -29,7 +29,7 @@ const EditProduct = () => {
 
 	const onSubmit = (data) => {
 		axios
-			.put(`http://localhost:5000/products/${id}`, data)
+			.put(`https://murmuring-fjord-25327.herokuapp.com/products/${id}`, data)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Your Product Details Edited Successfully !");
@@ -39,9 +39,11 @@ const EditProduct = () => {
 			});
 	};
 	useEffect(() => {
-		axios.get(`http://localhost:5000/products/${id}`).then((res) => {
-			reset(res.data);
-		});
+		axios
+			.get(`https://murmuring-fjord-25327.herokuapp.com/products/${id}`)
+			.then((res) => {
+				reset(res.data);
+			});
 	}, [id, reset]);
 	return (
 		<Container>

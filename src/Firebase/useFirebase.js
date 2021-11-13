@@ -132,7 +132,6 @@ const useFirebase = () => {
 			.finally(() => setIsloading(false));
 	};
 
-
 	const saveUserToDb = (
 		email,
 		displayName,
@@ -141,10 +140,10 @@ const useFirebase = () => {
 		history,
 		location,
 	) => {
-		const userName = (email).split("@")[0];
+		const userName = email.split("@")[0];
 		const user = { email, displayName, photoURL, userName };
 		axios
-			.post("http://localhost:5000/users", user)
+			.post("https://murmuring-fjord-25327.herokuapp.com/users", user)
 			.then(function (response) {
 				setOpen(true);
 				setTimeout(function () {
@@ -167,7 +166,7 @@ const useFirebase = () => {
 		const userName = email.split("@")[0];
 		const user = { email, displayName, photoURL, userName };
 		axios
-			.put("http://localhost:5000/users", user)
+			.put("https://murmuring-fjord-25327.herokuapp.com/users", user)
 			.then(function (response) {
 				setOpen(true);
 				setTimeout(function () {
@@ -182,7 +181,7 @@ const useFirebase = () => {
 
 	/*------ to findout user is admin or not---------- */
 	useEffect(() => {
-		fetch(`http://localhost:5000/users/${user?.email}`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/users/${user?.email}`)
 			.then((res) => res.json())
 			.then((data) => setAdmin(data?.admin));
 	}, [user?.email]);

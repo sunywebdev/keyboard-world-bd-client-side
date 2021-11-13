@@ -26,7 +26,9 @@ const AddReviews = () => {
 	});
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5000/singleUsers?email=${user?.email}`)
+			.get(
+				`https://murmuring-fjord-25327.herokuapp.com/singleUsers?email=${user?.email}`,
+			)
 			.then((res) => {
 				reset(res.data);
 			});
@@ -35,7 +37,7 @@ const AddReviews = () => {
 		const userReviewStar = rating;
 		const data = { photoURL, displayName, userReview, userReviewStar };
 		axios
-			.post(`http://localhost:5000/reviews`, data)
+			.post(`https://murmuring-fjord-25327.herokuapp.com/reviews`, data)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Your Review Added Successfully !");

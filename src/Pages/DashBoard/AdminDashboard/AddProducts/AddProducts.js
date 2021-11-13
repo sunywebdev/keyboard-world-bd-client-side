@@ -11,7 +11,7 @@ const AddProducts = () => {
 	const { register, handleSubmit } = useForm();
 	const onSubmit = (data) => {
 		axios
-			.post("http://localhost:5000/products", data)
+			.post("https://murmuring-fjord-25327.herokuapp.com/products", data)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Successfully added new product !");

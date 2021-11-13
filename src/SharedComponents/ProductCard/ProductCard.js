@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
 	const productId = product?.productId;
 	const submitOrder = () => {
 		axios
-			.post("http://localhost:5000/orders", {
+			.post("https://murmuring-fjord-25327.herokuapp.com/orders", {
 				productId,
 				productPhoto,
 				quantity,

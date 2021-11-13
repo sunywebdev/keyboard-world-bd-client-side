@@ -16,7 +16,7 @@ const AddBlogs = () => {
 	const { register, handleSubmit } = useForm();
 	const onSubmit = (data) => {
 		axios
-			.post("http://localhost:5000/blogs", data)
+			.post("https://murmuring-fjord-25327.herokuapp.com/blogs", data)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Successfully added new Blog !");

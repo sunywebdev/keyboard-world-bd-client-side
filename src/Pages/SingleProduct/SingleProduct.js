@@ -44,7 +44,7 @@ const SingleProduct = ({ prevQuantity }) => {
 	const [star, setStar] = useState(0);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/products/${id}`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/products/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setProduct(data);
@@ -53,7 +53,9 @@ const SingleProduct = ({ prevQuantity }) => {
 	}, [id, product?.productReviewStar]);
 	const [singleUser, setSingleUser] = useState([]);
 	useEffect(() => {
-		fetch(`http://localhost:5000/singleUsers?email=${user?.email}`)
+		fetch(
+			`https://murmuring-fjord-25327.herokuapp.com/singleUsers?email=${user?.email}`,
+		)
 			.then((res) => res.json())
 			.then((data) => setSingleUser(data));
 	}, [user?.email]);
@@ -66,7 +68,7 @@ const SingleProduct = ({ prevQuantity }) => {
 
 	const submitOrder = () => {
 		axios
-			.post("http://localhost:5000/orders", {
+			.post("https://murmuring-fjord-25327.herokuapp.com/orders", {
 				productId,
 				productPhoto,
 				quantity,

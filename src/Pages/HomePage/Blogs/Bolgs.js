@@ -29,7 +29,7 @@ const ExpandMore = styled((props) => {
 export default function Blogs() {
 	const [blogs, setBlogs] = React.useState([]);
 	React.useEffect(() => {
-		fetch(`http://localhost:5000/blogs`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/blogs`)
 			.then((res) => res.json())
 			.then((data) => setBlogs(data));
 	}, []);

@@ -23,14 +23,14 @@ const AllBlogs = () => {
 	const [openSuccessMsg, setOpenSuccessMsg] = React.useState(false);
 	const [successMsg, setSuccessMsg] = useState("");
 	useEffect(() => {
-		fetch(`http://localhost:5000/blogs`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/blogs`)
 			.then((res) => res.json())
 			.then((data) => setBlogs(data));
 	}, [blogs]);
 
 	const handleAlertAgreeClose = (id) => {
 		axios
-			.delete(`http://localhost:5000/blogs/${id}`)
+			.delete(`https://murmuring-fjord-25327.herokuapp.com/blogs/${id}`)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("That Blog Deleted Successfully");

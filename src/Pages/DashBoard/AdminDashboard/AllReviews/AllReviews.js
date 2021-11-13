@@ -27,14 +27,14 @@ const AllReviews = () => {
 	const [openSuccessMsg, setOpenSuccessMsg] = React.useState(false);
 	const [successMsg, setSuccessMsg] = useState("");
 	useEffect(() => {
-		fetch(`http://localhost:5000/reviews`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/reviews`)
 			.then((res) => res.json())
 			.then((data) => setReviews(data));
 	}, [reviews]);
 
 	const handleAlertAgreeClose = (id) => {
 		axios
-			.delete(`http://localhost:5000/reviews/${id}`)
+			.delete(`https://murmuring-fjord-25327.herokuapp.com/reviews/${id}`)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("That Review Deleted Successfully");

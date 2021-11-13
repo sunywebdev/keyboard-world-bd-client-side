@@ -26,13 +26,15 @@ const MyOrders = () => {
 	const [successMsg, setSuccessMsg] = useState("");
 	const userName = user?.email?.split("@")[0];
 	useEffect(() => {
-		fetch(`http://localhost:5000/myOrders?userName=${userName}`)
+		fetch(
+			`https://murmuring-fjord-25327.herokuapp.com/myOrders?userName=${userName}`,
+		)
 			.then((res) => res.json())
 			.then((data) => setOrders(data));
 	}, [userName, orders]);
 	const handleAlertAgreeClose = (id) => {
 		axios
-			.delete(`http://localhost:5000/orders/${id}`)
+			.delete(`https://murmuring-fjord-25327.herokuapp.com/orders/${id}`)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Your Order Deleted Successfully");

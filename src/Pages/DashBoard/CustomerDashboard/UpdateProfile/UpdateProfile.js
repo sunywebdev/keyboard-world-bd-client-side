@@ -37,7 +37,10 @@ const UpdateProfile = () => {
 
 	const onSubmit = (data) => {
 		axios
-			.put("http://localhost:5000/users/updateUsers", data)
+			.put(
+				"https://murmuring-fjord-25327.herokuapp.com/users/updateUsers",
+				data,
+			)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("	Profile Update Successful !");
@@ -49,7 +52,9 @@ const UpdateProfile = () => {
 
 	const [singleUser, setSingleUser] = useState([]);
 	useEffect(() => {
-		fetch(`http://localhost:5000/singleUsers?email=${user?.email}`)
+		fetch(
+			`https://murmuring-fjord-25327.herokuapp.com/singleUsers?email=${user?.email}`,
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				setSingleUser(data);
@@ -160,7 +165,12 @@ const UpdateProfile = () => {
 				</Grid>
 				<Grid item xs={12} md={5}>
 					<Card sx={{ maxWidth: 345 }}>
-						<img height='170' src={singleUser?.photoURL} alt='' style={{marginTop:11}}/>
+						<img
+							height='170'
+							src={singleUser?.photoURL}
+							alt=''
+							style={{ marginTop: 11 }}
+						/>
 						<CardContent>
 							<Typography
 								gutterBottom
@@ -210,13 +220,19 @@ const UpdateProfile = () => {
 											<TableCell align='left'>{singleUser?.age}</TableCell>
 										</TableRow>
 										<TableRow>
-											<TableCell classes={{ root: "color-1" }} sx={{ fontWeight: "bold" }} align='left'>
+											<TableCell
+												classes={{ root: "color-1" }}
+												sx={{ fontWeight: "bold" }}
+												align='left'>
 												Contact
 											</TableCell>
 											<TableCell align='left'>{singleUser?.contact}</TableCell>
 										</TableRow>
 										<TableRow>
-											<TableCell classes={{ root: "color-1" }}sx={{ fontWeight: "bold" }} align='left'>
+											<TableCell
+												classes={{ root: "color-1" }}
+												sx={{ fontWeight: "bold" }}
+												align='left'>
 												Address
 											</TableCell>
 											<TableCell align='left'>{singleUser?.address}</TableCell>

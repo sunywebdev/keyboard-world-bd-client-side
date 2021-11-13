@@ -24,14 +24,14 @@ const AllOrders = () => {
 	const [openSuccessMsg, setOpenSuccessMsg] = React.useState(false);
 	const [successMsg, setSuccessMsg] = useState("");
 	useEffect(() => {
-		fetch(`http://localhost:5000/orders`)
+		fetch(`https://murmuring-fjord-25327.herokuapp.com/orders`)
 			.then((res) => res.json())
 			.then((data) => setOrders(data));
 	}, []);
 
 	const handleAlertAgreeClose = (id) => {
 		axios
-			.delete(`http://localhost:5000/orders/${id}`)
+			.delete(`https://murmuring-fjord-25327.herokuapp.com/orders/${id}`)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Your Order Deleted Successfully");
@@ -44,7 +44,7 @@ const AllOrders = () => {
 
 	const statusChange = (id) => {
 		axios
-			.put(`http://localhost:5000/orders/${id}`)
+			.put(`https://murmuring-fjord-25327.herokuapp.com/orders/${id}`)
 			.then(function (response) {
 				setOpenSuccessMsg(true);
 				setSuccessMsg("Shipped");
