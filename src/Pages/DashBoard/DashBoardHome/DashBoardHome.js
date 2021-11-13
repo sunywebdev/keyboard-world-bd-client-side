@@ -30,6 +30,7 @@ import EditProduct from "../AdminDashboard/EditProduct/EditProduct";
 import AllReviews from "../AdminDashboard/AllReviews/AllReviews";
 import AddBlogs from "../AdminDashboard/AddBlogs/AddBlogs";
 import AllBlogs from "../AdminDashboard/AllBlogs/AllBlogs";
+import AdminRoute from "../../../AdminRoute/AdminRoute";
 
 const drawerWidth = 240;
 
@@ -42,7 +43,15 @@ function DashboardHome(props) {
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
-
+	const [singleUser, setUser] = React.useState([]);
+	React.useEffect(() => {
+		fetch(
+			`https://murmuring-fjord-25327.herokuapp.com/singleUsers?email=${user?.email}`,
+		)
+			.then((res) => res.json())
+			.then((data) => setUser(data));
+	}, [user?.email]);
+	const Developer = singleUser?.userRole === "Developer";
 	const drawer = (
 		<div>
 			<Button sx={{ my: 1.8 }} variant='contained' classes={{ root: "bg-1" }}>
@@ -53,151 +62,157 @@ function DashboardHome(props) {
 
 			<Divider />
 			<List>
-				<Link
-					style={{ textDecoration: "none", color: "black" }}
-					exact
-					to={`${url}`}>
-					<ListItem button>
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary={"Pay"} />
-					</ListItem>
-				</Link>
+				{(!admin || Developer) && (
+					<>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
+								<ListItemText primary={"My Orders"} />
+							</ListItem>
+						</Link>
 
-				<Link
-					style={{ textDecoration: "none", color: "black" }}
-					exact
-					to={`${url}/myorders`}>
-					<ListItem button>
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary={"My Orders"} />
-					</ListItem>
-				</Link>
-				<Link
-					style={{ textDecoration: "none", color: "black" }}
-					exact
-					to={`${url}/updateProfile`}>
-					<ListItem button>
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary={"Update Profile"} />
-					</ListItem>
-				</Link>
-				<Link
-					style={{ textDecoration: "none", color: "black" }}
-					exact
-					to={`${url}/addreviews`}>
-					<ListItem button>
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary={"Add Review"} />
-					</ListItem>
-				</Link>
-				<Divider />
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/pay`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
+								<ListItemText primary={"Pay"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/updateProfile`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
+								<ListItemText primary={"Update Profile"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/addreviews`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
+								<ListItemText primary={"Add Review"} />
+							</ListItem>
+						</Link>
+						<Divider />
+					</>
+				)}
 
-				<Box>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/allUsers`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+				{(admin || Developer) && (
+					<Box>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/allUsers`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"All Users"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/allUsersReviews`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"All Users"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/allUsersReviews`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"All Users Reviews"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/allorders`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"All Users Reviews"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/allorders`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"All Orders"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/pageRoles`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"All Orders"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/pageRoles`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"Page Roles"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/allproducts`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"Page Roles"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/allproducts`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"All Products"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/addproduct`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"All Products"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/addproduct`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"Add Product"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/allblogs`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"Add Product"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/allblogs`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"All Blogs"} />
-						</ListItem>
-					</Link>
-					<Link
-						style={{ textDecoration: "none", color: "black" }}
-						exact
-						to={`${url}/addblog`}>
-						<ListItem button>
-							<ListItemIcon>
-								<InboxIcon />
-							</ListItemIcon>
+								<ListItemText primary={"All Blogs"} />
+							</ListItem>
+						</Link>
+						<Link
+							style={{ textDecoration: "none", color: "black" }}
+							exact
+							to={`${url}/addblog`}>
+							<ListItem button>
+								<ListItemIcon>
+									<InboxIcon />
+								</ListItemIcon>
 
-							<ListItemText primary={"Add Blog"} />
-						</ListItem>
-					</Link>
-				</Box>
+								<ListItemText primary={"Add Blog"} />
+							</ListItem>
+						</Link>
+					</Box>
+				)}
 			</List>
 		</div>
 	);
@@ -279,44 +294,44 @@ function DashboardHome(props) {
 				<Toolbar />
 				<Switch>
 					<Route exact path={path}>
-						<Pay></Pay>
-					</Route>
-					<Route exact path={`${path}/myorders`}>
 						<MyOrders></MyOrders>
 					</Route>
-					<Route exact path={`${path}/updateProfile`}>
+					<Route path={`${path}/pay`}>
+						<Pay></Pay>
+					</Route>
+					<Route path={`${path}/updateProfile`}>
 						<UpdateProfile></UpdateProfile>
 					</Route>
 					<Route path={`${path}/addReviews`}>
 						<AddReviews></AddReviews>
 					</Route>
-					<Route path={`${path}/allUsers`}>
+					<AdminRoute path={`${path}/allUsers`}>
 						<AllUsers></AllUsers>
-					</Route>
-					<Route path={`${path}/allUsersReviews`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/allUsersReviews`}>
 						<AllReviews></AllReviews>
-					</Route>
-					<Route path={`${path}/allorders`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/allorders`}>
 						<AllOrders></AllOrders>
-					</Route>
-					<Route path={`${path}/pageRoles`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/pageRoles`}>
 						<PageRols></PageRols>
-					</Route>
-					<Route path={`${path}/allproducts`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/allproducts`}>
 						<AllProducts></AllProducts>
-					</Route>
-					<Route path={`${path}/addproduct`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/addproduct`}>
 						<AddProducts></AddProducts>
-					</Route>
-					<Route path={`${path}/editproduct/:id`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/editproduct/:id`}>
 						<EditProduct></EditProduct>
-					</Route>
-					<Route path={`${path}/addblog`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/addblog`}>
 						<AddBlogs></AddBlogs>
-					</Route>
-					<Route path={`${path}/allblogs`}>
+					</AdminRoute>
+					<AdminRoute path={`${path}/allblogs`}>
 						<AllBlogs></AllBlogs>
-					</Route>
+					</AdminRoute>
 				</Switch>
 			</Box>
 		</Box>

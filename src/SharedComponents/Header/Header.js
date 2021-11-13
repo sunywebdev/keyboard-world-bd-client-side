@@ -10,7 +10,6 @@ import { Menu, MenuItem, Typography } from "@mui/material";
 
 const Header = () => {
 	const { user, logOut } = useAuth();
-	console.log(user);
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event) => {

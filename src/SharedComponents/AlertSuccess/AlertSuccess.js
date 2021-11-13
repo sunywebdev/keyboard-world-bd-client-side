@@ -8,7 +8,6 @@ const AlertSuccess = ({ successMsg, openSuccessMsg, setOpenSuccessMsg }) => {
 		}
 		setOpenSuccessMsg(false);
 	};
-	console.log(successMsg, openSuccessMsg);
 	return (
 		<Snackbar
 			open={openSuccessMsg}

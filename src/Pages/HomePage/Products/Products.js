@@ -29,7 +29,7 @@ const Products = () => {
 					</Box>
 					<Grid container spacing={2} sx={{ mx: "auto" }}>
 						{products?.map((product) => (
-							<Grid item xs={12} sm={6} md={3}>
+							<Grid item xs={12} sm={6} md={3} key={product?._id}>
 								<ProductCard product={product}></ProductCard>
 							</Grid>
 						))}

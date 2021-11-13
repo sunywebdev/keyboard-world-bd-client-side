@@ -57,7 +57,7 @@ export default function Blogs() {
 					</Box>
 					<Grid container spacing={2} sx={{ mx: "auto" }}>
 						{blogs?.map((blog) => (
-							<Grid item xs={12} sm={6} md={4}>
+							<Grid item xs={12} sm={6} md={4} key={blog?._id}>
 								<Card sx={{ maxWidth: 345 }}>
 									<CardHeader
 										avatar={

@@ -35,7 +35,6 @@ import Header from "../../SharedComponents/Header/Header";
 import Footer from "../../SharedComponents/Footer/Footer";
 
 const SingleProduct = ({ prevQuantity }) => {
-	console.log(prevQuantity);
 	const { id } = useParams();
 	const { user } = useAuth();
 	const [openSuccessMsg, setOpenSuccessMsg] = React.useState(false);

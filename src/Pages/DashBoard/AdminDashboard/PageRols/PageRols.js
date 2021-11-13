@@ -30,7 +30,6 @@ const PageRols = () => {
 
 	const { register, handleSubmit } = useForm();
 	const onSubmit = (data) => {
-		console.log(data);
 		axios
 			.put(`https://murmuring-fjord-25327.herokuapp.com/users/pageRole`, data, {
 				headers: {
@@ -95,6 +94,7 @@ const PageRols = () => {
 								{...register("userRole", { required: true })}>
 								<MenuItem value='Admin'>Admin</MenuItem>
 								<MenuItem value='User'>User</MenuItem>
+								<MenuItem value='Developer'>Developer</MenuItem>
 							</Select>
 						</FormControl>
 						<Button

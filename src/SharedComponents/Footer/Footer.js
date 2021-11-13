@@ -1,4 +1,4 @@
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 const Footer = () => {
@@ -8,14 +8,7 @@ const Footer = () => {
 				container
 				spacing={2}
 				sx={{ textAlign: "left", py: 5, mt: 9, color: "white" }}>
-				<Grid item md={2}>
-					<Typography
-						sx={{ textAlign: "left", fontWeight: "bold", mt: 2, mb: 1 }}
-						variant='h5'>
-						FOLLOW US
-					</Typography>
-				</Grid>
-				<Grid item md={3}>
+				<Grid item md={4}>
 					<Box>
 						<Box sx={{ textAlign: "left" }}>
 							<Typography sx={{ fontWeight: "bold", mt: 2 }} variant='h6'>
@@ -39,7 +32,7 @@ const Footer = () => {
 									style={{
 										border: "1px solid white",
 										padding: "17px 5px",
-										borderRadius:5
+										borderRadius: 5,
 									}}
 								/>
 								<Button
@@ -70,7 +63,7 @@ const Footer = () => {
 						alt=''
 					/>
 				</Grid>
-				<Grid item md={4}>
+				<Grid item md={5}>
 					<Typography
 						sx={{ textAlign: "center", fontWeight: "bold", mt: 2, mb: 1 }}
 						variant='h5'>
@@ -83,6 +76,9 @@ const Footer = () => {
 					/>
 				</Grid>
 			</Grid>
+			<p style={{ margin: 0, padding: "4px 0", color: "white" }}>
+				All Right Reserved By<b> Keyboard World BD </b>
+			</p>
 		</div>
 	);
 };

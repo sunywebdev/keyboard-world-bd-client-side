@@ -10,6 +10,7 @@ import SingleProduct from "./Pages/SingleProduct/SingleProduct";
 import DashBoardHome from "./Pages/DashBoard/DashBoardHome/DashBoardHome";
 import MoreProducts from "./Pages/MoreProducts/MoreProducts";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
 	return (
@@ -37,6 +38,9 @@ function App() {
 						</Route>
 						<Route path='/resetpassword'>
 							<PasswordReset></PasswordReset>
+						</Route>
+						<Route path='*'>
+							<NotFound></NotFound>
 						</Route>
 					</Switch>
 				</BrowserRouter>

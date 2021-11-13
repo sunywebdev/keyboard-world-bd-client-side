@@ -23,7 +23,6 @@ import AlertSuccess from "../../../../SharedComponents/AlertSuccess/AlertSuccess
 
 const UpdateProfile = () => {
 	const { user } = useAuth();
-	console.log(user?.email);
 	const { register, handleSubmit, reset } = useForm({
 		defaultValues: {
 			address: "",

@@ -16,7 +16,7 @@ const Banner = () => {
 		arrows: false,
 	};
 	return (
-		<div class='bg-1'>
+		<div className='bg-1'>
 			<Divider sx={{ border: "1px solid white" }} />
 			<Container sx={{ mt: 7, py: { md: 11, xs: 4 } }}>
 				<Grid

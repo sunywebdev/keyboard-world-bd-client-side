@@ -74,6 +74,7 @@ const Reviews = () => {
 							{reviews?.map((review) => (
 								<>
 									<Card
+										key={review?._id}
 										sx={{
 											maxWidth: 345,
 											mt: 5,

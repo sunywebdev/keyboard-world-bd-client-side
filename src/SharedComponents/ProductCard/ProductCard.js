@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, ButtonGroup, CardActions, Divider } from "@mui/material";
 import { Box } from "@mui/system";
-import Paper from "@mui/material/Paper";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -40,7 +39,6 @@ const ProductCard = ({ product }) => {
 			});
 	};
 
-	console.log(quantity);
 	return (
 		<>
 			<Card
@@ -99,7 +97,7 @@ const ProductCard = ({ product }) => {
 							<input
 								type='number'
 								value={quantity}
-								class='color-1'
+								className='color-1'
 								style={{
 									maxWidth: 40,
 									height: 29,

@@ -60,86 +60,89 @@ const SignUp = () => {
 			location,
 		);
 	};
-	console.log(user);
 	return (
 		<Container>
 			<Grid
-				justifyContent='space-between'
 				container
 				spacing={0}
-				sx={{ display: "flex", alignItems: "center" }}>
-				<Grid item xs={12} md={5} sx={{ textAlign: "left", my: { xs: 5 } }}>
-					<Typography
-						color='success.main'
-						sx={{ textAlign: "center", pb: 2, fontWeight: "bold" }}
-						variant='h5'>
-						SignUp
-					</Typography>
-					<form onSubmit={handleSubmit(onSubmit)}>
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "column",
-								"& > :not(style)": { m: 1 },
-							}}>
-							<TextField
-								type='text'
-								label='Your Name'
-								variant='standard'
-								{...register("displayName", { required: true })}
-							/>
-							<TextField
-								type='email'
-								label='Your Email'
-								variant='standard'
-								{...register("email", { required: true })}
-							/>
-							<TextField
-								type='text'
-								label='Your PhotoURL (Optional)'
-								variant='standard'
-								{...register("photoURL")}
-							/>
-							<TextField
-								type='password'
-								label='Your Password'
-								variant='standard'
-								{...register("password", { required: true })}
-							/>
-							<Typography
-								color='error.main'
-								sx={{ textAlign: "center", fontWeight: "bold" }}
-								variant='body2'>
-								{errorMsg}
-								{errorMsg2}
-							</Typography>
-							<Button
-								type='submit'
-								color='success'
-								variant='contained'
-								sx={{ mt: 3 }}>
-								SignUp
-							</Button>
-							<Button
-								onClick={handleGoogleSignUp}
-								color='success'
-								variant='contained'
-								sx={{ mt: 3 }}>
-								<GoogleIcon fontSize='small' sx={{ mr: 1 }}></GoogleIcon>SignUp
-								With Google
-							</Button>
-						</Box>
-					</form>
-					<div style={{ textAlign: "center" }}>
-						<Link to='/login'>Already Have An Account?</Link>
-					</div>
-				</Grid>
-				<Grid item md={6}>
-					<img
-						src={signup}
-						alt=''
-						style={{ width: "100%", maxHeight: "550px" }}
-					/>
+				direction='column'
+				alignItems='center'
+				justifyContent='center'
+				style={{ minHeight: "100vh" }}>
+				<Grid
+					justifyContent='space-between'
+					container
+					spacing={0}
+					sx={{ display: "flex", alignItems: "center" }}>
+					<Grid item xs={12} md={5} sx={{ textAlign: "left", my: { xs: 5 } }}>
+						<Typography
+							classes={{ root: "color-1" }}
+							sx={{ textAlign: "center", pb: 2, fontWeight: "bold" }}
+							variant='h5'>
+							SignUp
+						</Typography>
+						<form onSubmit={handleSubmit(onSubmit)}>
+							<Box
+								sx={{
+									display: "flex",
+									flexDirection: "column",
+									"& > :not(style)": { m: 1 },
+								}}>
+								<TextField
+									type='text'
+									label='Your Name'
+									{...register("displayName", { required: true })}
+								/>
+								<TextField
+									type='email'
+									label='Your Email'
+									{...register("email", { required: true })}
+								/>
+								<TextField
+									type='text'
+									label='Your PhotoURL (Optional)'
+									{...register("photoURL")}
+								/>
+								<TextField
+									type='password'
+									label='Your Password'
+									{...register("password", { required: true })}
+								/>
+								<Typography
+									color='error.main'
+									sx={{ textAlign: "center", fontWeight: "bold" }}
+									variant='body2'>
+									{errorMsg}
+									{errorMsg2}
+								</Typography>
+								<Button
+									type='submit'
+									classes={{ root: "bg-1" }}
+									variant='contained'
+									sx={{ mt: 3 }}>
+									SignUp
+								</Button>
+								<Button
+									onClick={handleGoogleSignUp}
+									classes={{ root: "bg-1" }}
+									variant='contained'
+									sx={{ mt: 3 }}>
+									<GoogleIcon fontSize='small' sx={{ mr: 1 }}></GoogleIcon>
+									SignUp With Google
+								</Button>
+							</Box>
+						</form>
+						<div style={{ textAlign: "center" }}>
+							<Link to='/login'>Already Have An Account?</Link>
+						</div>
+					</Grid>
+					<Grid item md={6}>
+						<img
+							src={signup}
+							alt=''
+							style={{ width: "100%", maxHeight: "550px" }}
+						/>
+					</Grid>
 				</Grid>
 			</Grid>
 			{user?.email && !error && (
@@ -147,6 +150,7 @@ const SignUp = () => {
 					<Alert
 						onClose={handleClose}
 						severity='success'
+						classes={{ root: "bg-1" }}
 						variant='filled'
 						sx={{ width: "100%" }}>
 						New User Created Successfully! Going Back To Desired Page in &nbsp;
