@@ -87,7 +87,7 @@ const AllBlogs = () => {
 													component='div'
 													classes={{ root: "color-1" }}
 													sx={{ fontWeight: "bold" }}>
-													{blog?.userName}
+													{blog?.bloggerName}
 												</Typography>
 											</TableCell>
 											<TableCell align='left'>
@@ -132,21 +132,11 @@ const AllBlogs = () => {
 						) : (
 							<TableHead sx={{ th: { fontWeight: "bold" } }}>
 								<TableRow>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
-									<TableCell align='left'>
-										<CircularProgress />
-									</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
+									<TableCell align='left'>N/A</TableCell>
 								</TableRow>
 							</TableHead>
 						)}

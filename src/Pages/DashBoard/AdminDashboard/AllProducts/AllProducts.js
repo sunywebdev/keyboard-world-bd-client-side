@@ -142,19 +142,19 @@ const AllProducts = () => {
 							<TableHead sx={{ th: { fontWeight: "bold" } }}>
 								<TableRow>
 									<TableCell align='left'>
-										<CircularProgress />
+										N/A
 									</TableCell>
 									<TableCell align='left'>
-										<CircularProgress />
+										N/A
 									</TableCell>
 									<TableCell align='left'>
-										<CircularProgress />
+										N/A
 									</TableCell>
 									<TableCell align='left'>
-										<CircularProgress />
+										N/A
 									</TableCell>
 									<TableCell align='left'>
-										<CircularProgress />
+										N/A
 									</TableCell>
 								</TableRow>
 							</TableHead>
