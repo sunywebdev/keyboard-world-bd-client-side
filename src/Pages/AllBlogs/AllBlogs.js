@@ -31,7 +31,7 @@ export default function Blogs() {
 								Small blogs about latest products
 							</Typography>
 						</Box>
-						<Grid container spacing={2} sx={{ mx: "auto" }}>
+						<Grid container spacing={2} sx={{ mx: "auto", width: "100%" }}>
 							{blogs?.map((blog) => (
 								<Grid item xs={12} sm={6} md={4} key={blog?._id}>
 									<SingleBlog blog={blog}></SingleBlog>
