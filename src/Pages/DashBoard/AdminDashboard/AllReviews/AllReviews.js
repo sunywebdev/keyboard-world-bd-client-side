@@ -1,6 +1,5 @@
 import {
 	Button,
-	CircularProgress,
 	Grid,
 	Rating,
 	Table,

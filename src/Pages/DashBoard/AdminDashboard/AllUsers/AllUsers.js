@@ -1,5 +1,4 @@
 import {
-	CircularProgress,
 	Grid,
 	Table,
 	TableBody,

@@ -1,6 +1,5 @@
 import {
 	Button,
-	CircularProgress,
 	Grid,
 	Table,
 	TableBody,
