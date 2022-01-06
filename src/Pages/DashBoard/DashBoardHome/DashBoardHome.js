@@ -6,7 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -31,6 +30,13 @@ import AllReviews from "../AdminDashboard/AllReviews/AllReviews";
 import AddBlogs from "../AdminDashboard/AddBlogs/AddBlogs";
 import AllBlogs from "../AdminDashboard/AllBlogs/AllBlogs";
 import AdminRoute from "../../../AdminRoute/AdminRoute";
+import GroupIcon from "@mui/icons-material/Group";
+import ReviewsIcon from "@mui/icons-material/Reviews";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import RssFeedIcon from "@mui/icons-material/RssFeed";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const drawerWidth = 240;
 
@@ -55,47 +61,40 @@ function DashboardHome(props) {
 			</Button>
 
 			<Divider />
-			<List>
+			<List className='color-1'>
 				{!admin && (
 					<>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							exact
-							to={`${url}`}>
+						<Link style={{ textDecoration: "none" }} exact to={`${url}`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<ShoppingBasketIcon className='color-1' />
 								</ListItemIcon>
 								<ListItemText primary={"My Orders"} />
 							</ListItem>
 						</Link>
 
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/pay`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/pay`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<AttachMoneyIcon />
 								</ListItemIcon>
 								<ListItemText primary={"Pay"} />
 							</ListItem>
 						</Link>
 						<Link
-							style={{ textDecoration: "none", color: "black" }}
+							style={{ textDecoration: "none" }}
 							to={`${url}/updateProfile`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<AccountCircleIcon className='color-1' />
 								</ListItemIcon>
 								<ListItemText primary={"Update Profile"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/addreviews`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/addreviews`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<ReviewsIcon className='color-1' />
 								</ListItemIcon>
 								<ListItemText primary={"Add Review"} />
 							</ListItem>
@@ -106,89 +105,75 @@ function DashboardHome(props) {
 
 				{admin && (
 					<Box>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/allUsers`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/allUsers`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<GroupIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"All Users"} />
 							</ListItem>
 						</Link>
 						<Link
-							style={{ textDecoration: "none", color: "black" }}
+							style={{ textDecoration: "none" }}
 							to={`${url}/allUsersReviews`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<ReviewsIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"All Users Reviews"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/allorders`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/allorders`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<ShoppingBasketIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"All Orders"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/pageRoles`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/pageRoles`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<AdminPanelSettingsIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"Page Roles"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/allproducts`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/allproducts`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<ShoppingBasketIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"All Products"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/addproduct`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/addproduct`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<ShoppingBasketIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"Add Product"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/allblogs`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/allblogs`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<RssFeedIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"All Blogs"} />
 							</ListItem>
 						</Link>
-						<Link
-							style={{ textDecoration: "none", color: "black" }}
-							to={`${url}/addblog`}>
+						<Link style={{ textDecoration: "none" }} to={`${url}/addblog`}>
 							<ListItem button>
 								<ListItemIcon>
-									<InboxIcon />
+									<RssFeedIcon className='color-1' />
 								</ListItemIcon>
 
 								<ListItemText primary={"Add Blog"} />
